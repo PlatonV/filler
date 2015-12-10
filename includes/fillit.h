@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.h                                           :+:      :+:    :+:   */
+/*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:55 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/10 13:03:15 by vplaton          ###   ########.fr       */
+/*   Updated: 2015/12/10 15:03:02 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,14 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct		s_coord
+{
+	int		i;
+	int		j;
+}					t_coord;
+
+void		ft_putchar(char c);
+void		back(char **mat, t_coord coords, int n, int m, char shape);
 
 #endif
