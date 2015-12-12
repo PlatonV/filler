@@ -6,7 +6,7 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:55 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/10 15:03:02 by vplaton          ###   ########.fr       */
+/*   Updated: 2015/12/12 15:58:14 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ typedef struct		s_coord
 }					t_coord;
 
 void		ft_putchar(char c);
-void		back(char **mat, t_coord coords, int n, int m, char shape);
+void		back(char **mat, t_coord coords, int n, char shape);
 
 #endif
