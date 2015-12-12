@@ -6,7 +6,7 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:29 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/12 15:59:24 by vplaton          ###   ########.fr       */
+/*   Updated: 2015/12/12 16:32:15 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ void		print_matrix(char **mat, int n)
 		j = 0;
 		while (j < n)
 		{
-			ft_putchar(mat[i][j]);
-			ft_putchar(' ');
+//			ft_putchar(mat[i][j]);
+//			ft_putchar(' ');
 			j++;
 		}
-		ft_putchar('\n');
+//		ft_putchar('\n');
 		i++;
 	}
 }
@@ -84,27 +84,29 @@ void		go_next(char **mat, t_coord coords, int n, char shape)
 
 void		back(char **mat, t_coord coords, int n, char shape)
 {
-	if (counter < 4 && mat[coords.i][coords.j] != '.')
+	if (counter < n && mat[coords.i][coords.j] != '.')
 	{
 		go_next(mat, coords, n, shape);
 		return;
 	}
 	// put_shape
-	mat[coords.i][coords.j] = '#';
+	mat[coords.i][coords.j] = '1' + counter;
 	counter++;
 	// check_solution
-	if (counter == 4)
+	if (counter == n)
 		print_matrix(mat, n);
-	go_next(mat, coords, n, shape);
+	if (coords.i != 4 || coords.j != 4)
+		go_next(mat, coords, n, shape);
 	// clear_shape
 	mat[coords.i][coords.j] = '.';
 	counter--;
-	go_next(mat, coords, n, shape);
+	if (coords.i != 4 || coords.j != 4)
+		go_next(mat, coords, n, shape);
 }
 
 int			main()
 {
-	int		n = 5;
+	int		n = 6;
 	t_coord	c;
 
 	c.i = 0;
