@@ -6,7 +6,7 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:29 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/10 15:03:01 by vplaton          ###   ########.fr       */
+/*   Updated: 2015/12/12 15:27:46 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,14 @@ void		back(char **mat, t_coord coords, int n, int m, char shape)
 	// put_shape
 	mat[coords.i][coords.j] = '#';
 	counter++;
-	go_next(mat, coords, n, m, shape);
 	// check_solution
-	print_matrix(mat, n, m);
+	if (counter == 4)
+		print_matrix(mat, n, m);
+	go_next(mat, coords, n, m, shape);
 	// clear_shape
 	mat[coords.i][coords.j] = '.';
+	counter--;
+	go_next(mat, coords, n, m, shape);
 }
 
 int			main()
