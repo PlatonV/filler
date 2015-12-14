@@ -6,7 +6,7 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:29 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/12 16:32:15 by vplaton          ###   ########.fr       */
+/*   Updated: 2015/12/14 10:51:10 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 char		**a;
 int			counter;
+int			is_put[26];
 
 char		**create_matrix(int n)
 {
@@ -56,13 +57,14 @@ void		print_matrix(char **mat, int n)
 		j = 0;
 		while (j < n)
 		{
-//			ft_putchar(mat[i][j]);
-//			ft_putchar(' ');
+			ft_putchar(mat[i][j]);
+			ft_putchar(' ');
 			j++;
 		}
-//		ft_putchar('\n');
+		ft_putchar('\n');
 		i++;
 	}
+	ft_putchar('\n');
 }
 
 void		go_next(char **mat, t_coord coords, int n, char shape)
@@ -84,29 +86,41 @@ void		go_next(char **mat, t_coord coords, int n, char shape)
 
 void		back(char **mat, t_coord coords, int n, char shape)
 {
-	if (counter < n && mat[coords.i][coords.j] != '.')
+	int		pos;
+
+	if (counter >= n)
+		return;
+	if (mat[coords.i][coords.j] != '.')
 	{
 		go_next(mat, coords, n, shape);
 		return;
 	}
-	// put_shape
-	mat[coords.i][coords.j] = '1' + counter;
+	pos = 1;
 	counter++;
-	// check_solution
-	if (counter == n)
-		print_matrix(mat, n);
-	if (coords.i != 4 || coords.j != 4)
-		go_next(mat, coords, n, shape);
+	while (pos <= n)
+	{
+		if (!is_put[pos])
+		{
+			// put_shape
+			mat[coords.i][coords.j] = "0ABCDEFGHIJKLMNOPQRSTUVWXYZ"[pos];
+			is_put[pos] = 1;
+			// check_solution
+			if (counter == n)
+				print_matrix(mat, n);
+			go_next(mat, coords, n, shape);
+			is_put[pos] = 0;
+		}
+		pos++;
+	}
 	// clear_shape
 	mat[coords.i][coords.j] = '.';
 	counter--;
-	if (coords.i != 4 || coords.j != 4)
-		go_next(mat, coords, n, shape);
+	go_next(mat, coords, n, shape);
 }
 
 int			main()
 {
-	int		n = 6;
+	int		n = 16;
 	t_coord	c;
 
 	c.i = 0;
