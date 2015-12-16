@@ -6,14 +6,11 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:13:05 by azaha             #+#    #+#             */
-/*   Updated: 2015/12/10 13:13:07 by azaha            ###   ########.fr       */
+/*   Updated: 2015/12/16 11:14:41 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include <fcntl.h>
-#include <stdio.h>
-#include "../fillit.h"
+#include "fillit.h"
 
 char	**get_elements(int fd)
 {

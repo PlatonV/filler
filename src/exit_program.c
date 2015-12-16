@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_line.c                                       :+:      :+:    :+:   */
+/*   exit_program.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 13:01:50 by azaha             #+#    #+#             */
-/*   Updated: 2015/12/12 14:18:59 by azaha            ###   ########.fr       */
+/*   Created: 2015/12/11 12:56:46 by azaha             #+#    #+#             */
+/*   Updated: 2015/12/16 11:14:54 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../fillit.h"
+#include "fillit.h"
 
-void	check_line(char *line)		/* verificare daca linia este valida */
+void	exit_program()		/* Exit program if an error occurs */
 {
-	if (ft_strlen(line) != 4)
-		exit_program();
- 	if (!ft_strchr(line, '.') && !ft_strchr(line, '#'))
-		exit_program();
+	ft_putstr("error\n");
+	exit(1);
 }

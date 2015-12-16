@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_elem.c                                        :+:      :+:    :+:   */
+/*   check_newline.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/13 20:05:44 by azaha             #+#    #+#             */
-/*   Updated: 2015/12/13 20:05:45 by azaha            ###   ########.fr       */
+/*   Created: 2015/12/11 13:01:58 by azaha             #+#    #+#             */
+/*   Updated: 2015/12/16 11:15:15 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fillit.h"
+#include "fillit.h"
 
-void	init_elem(t_elem *elem)
+void	check_newline(char *line)		/* verificare daca intre matricile cu tetriminos exista newline */
 {
-	elem->i = 0;
-	elem->j = 0;
-	elem->index = 0;
-	elem->hash = 1;
+	if (line[0] != '\0')
+		exit_program();
 }

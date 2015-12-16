@@ -6,13 +6,11 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 15:50:21 by azaha             #+#    #+#             */
-/*   Updated: 2015/12/11 15:50:22 by azaha            ###   ########.fr       */
+/*   Updated: 2015/12/16 11:15:02 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../fillit.h"
-#include <stdio.h>
+#include "fillit.h"
 
 const int	line[4] = {-1, 0, 1, 0};
 const int	col[4] = {0, 1, 0, -1};

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_newline.c                                    :+:      :+:    :+:   */
+/*   check_fd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 13:01:58 by azaha             #+#    #+#             */
-/*   Updated: 2015/12/11 13:01:59 by azaha            ###   ########.fr       */
+/*   Created: 2015/12/11 12:56:55 by azaha             #+#    #+#             */
+/*   Updated: 2015/12/16 11:22:47 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../fillit.h"
-void	check_newline(char *line)		/* verificare daca intre matricile cu tetriminos exista newline */
+#include "fillit.h"
+
+int		check_fd(int fd)
 {
-	if (line[0] != '\0')
-		exit_program();
+	if (fd == -1)
+		return(0);
+	return(1);
 }

@@ -6,13 +6,11 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 14:59:53 by azaha             #+#    #+#             */
-/*   Updated: 2015/12/11 14:59:55 by azaha            ###   ########.fr       */
+/*   Updated: 2015/12/16 11:14:13 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../fillit.h"
-#include <stdio.h>
+#include "fillit.h"
 
 static	char	**allocate_matrix(int line, int col)
 {

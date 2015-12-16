@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   save_line.c                                        :+:      :+:    :+:   */
+/*   check_line.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 13:02:21 by azaha             #+#    #+#             */
-/*   Updated: 2015/12/11 13:02:22 by azaha            ###   ########.fr       */
+/*   Created: 2015/12/11 13:01:50 by azaha             #+#    #+#             */
+/*   Updated: 2015/12/16 11:22:34 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../fillit.h"
+#include "fillit.h"
 
-char	*save_line(char *tetriminos, char *line)	/* salveaza fiecare linie citita cu get_next_line intr-un string (tetriminos) care este trimis mai departe si procesat */
+void	check_line(char *line)		/* verificare daca linia este valida */
 {
-	char *aux;
-
-	aux = ft_strjoin(tetriminos, line);
-	aux = ft_strjoin(aux, "*");
-	free(tetriminos);
-	tetriminos = aux;
-	return(tetriminos);
+	if (ft_strlen(line) != 4)
+		exit_program();
+ 	if (!ft_strchr(line, '.') && !ft_strchr(line, '#'))
+		exit_program();
 }
