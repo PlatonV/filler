@@ -6,7 +6,7 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:29 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/16 14:03:54 by vplaton          ###   ########.fr       */
+/*   Updated: 2015/12/16 15:10:26 by vplaton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 char		**a;
 int			counter;
 int			is_put[26];
-int			g_cpos;
 
 int			count_shapes(char **shapes)
 {
@@ -27,127 +26,49 @@ int			count_shapes(char **shapes)
 	return (count);
 }
 
-int			check_solution(int n)
+int			try_put(char **mat, int n, int shapei, int var)
 {
-	int		index;
+	int		i;
+	int		j;
+	t_coord	c;
 
-	index = 0;
-	while (index < n)
+	i = 0;
+	while (i < n)
 	{
-		printf("%d ", is_put[index]);
-		if (!is_put[index++])
+		j = 0;
+		while (j < n)
 		{
-			printf("\n");
-			return (0);
+			c.i = i;
+			c.j = j;
+			g_cshape = shapei;
+			if (put_shape(mat, c, n, g_shapes[shapei]))
+			{
+				if (var--)
+					return (1);
+			}
+			clear_shape(mat, c, n, g_shapes[shapei]);
+			j++;
 		}
+		i++;
 	}
-	return (1);
+	return (0);
 }
 
-void		go_next(char **mat, t_coord coords, int n)
+void		back(char **mat, int n, int shapei)
 {
-	if (coords.j == n - 1)
+	int		var;
+
+	var = 0;
+	printf("%d\n", shapei);
+	while (try_put(mat, n, shapei, var))
 	{
-		if (coords.i == n - 1)
-			return;
-		coords.i += 1;
-		coords.j = 0;
-		back(mat, coords, n);
-	}
-	else
-	{
-		coords.j += 1;
-		back(mat, coords, n);
-	}
-}
-
-int			put_shape(char **mat, t_coord c, int n, char *shape)
-{
-	int		step;
-	char	letter;
-
-	step = 0;
-	letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[g_cpos];
-	if (mat[c.i][c.j] != '.')
-		return (0);
-	mat[c.i][c.j] = letter;
-	while (shape[step])
-	{
-		if (shape[step] == 'U')
-			c.i--;
-		else if (shape[step] == 'D')
-			c.i++;
-		else if (shape[step] == 'L')
-			c.j--;
-		else if (shape[step] == 'R')
-			c.j++;
-		if (c.i >= 0 && c.i < n && c.j >= 0 && c.j < n &&
-				mat[c.i][c.j] == '.')
-			mat[c.i][c.j] = letter;
-		else
-			return (0);
-		step++;
-	}
-	return (1);
-}
-
-int			clear_shape(char **mat, t_coord c, int n, char *shape)
-{
-	int		step;
-	char	letter;
-
-	step = 0;
-	letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[g_cpos];
-	if (mat[c.i][c.j] == letter)
-		mat[c.i][c.j] = '.';
-	while (shape[step])
-	{
-		if (shape[step] == 'U')
-			c.i--;
-		else if (shape[step] == 'D')
-			c.i++;
-		else if (shape[step] == 'L')
-			c.j--;
-		else if (shape[step] == 'R')
-			c.j++;
-		if (c.i >= 0 && c.i < n && c.j >= 0 && c.j < n &&
-				mat[c.i][c.j] == letter)
-			mat[c.i][c.j] = '.';
-		step++;
-	}
-	return (1);
-}
-
-void		back(char **mat, t_coord coords, int n)
-{
-	int		tpos;
-
-	g_cpos = 0;
-	while (g_cpos < n)
-	{
-		if (!is_put[g_cpos])
+		print_matrix(mat, n);
+		if (shapei == count_shapes(g_shapes))
 		{
-			if (put_shape(mat, coords, n, g_shapes[g_cpos]))
-			{
-				is_put[g_cpos] = 1;
-				counter++;
-				if (check_solution(count_shapes(g_shapes)))
-				{
-					print_matrix(mat, n);
-					exit(0);
-				}
-				tpos = g_cpos;
-				go_next(mat, coords, n);
-				g_cpos = tpos;
-				clear_shape(mat, coords, n, g_shapes[g_cpos]);
-				is_put[g_cpos] = 0;
-			}
-			else
-			{
-				clear_shape(mat, coords, n, g_shapes[g_cpos]);
-			}
+			print_matrix(mat, n);
+			exit(0);
 		}
-		g_cpos++;
+		back(mat, n, shapei + 1);
+		var++;
 	}
-	go_next(mat, coords, n);
 }
