@@ -6,7 +6,7 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 14:40:39 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/16 15:19:08 by vplaton          ###   ########.fr       */
+/*   Updated: 2015/12/17 19:02:26 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ int			put_shape(char **mat, t_coord c, int n, char *shape)
 	step = 0;
 	letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[g_cshape];
 	if (mat[c.i][c.j] != '.')
-	{
 		return (0);
-	}
 	mat[c.i][c.j] = letter;
 	while (shape[step])
 	{
@@ -38,9 +36,7 @@ int			put_shape(char **mat, t_coord c, int n, char *shape)
 				mat[c.i][c.j] == '.')
 			mat[c.i][c.j] = letter;
 		else
-		{
 			return (0);
-		}
 		step++;
 	}
 	return (1);
