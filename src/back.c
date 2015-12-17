@@ -6,15 +6,11 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:29 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/17 19:02:45 by                  ###   ########.fr       */
+/*   Updated: 2015/12/17 19:20:43 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-char		**a;
-int			counter;
-int			is_put[26];
 
 int			count_shapes(char **shapes)
 {

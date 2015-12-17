@@ -6,7 +6,7 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 14:40:39 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/17 19:02:26 by                  ###   ########.fr       */
+/*   Updated: 2015/12/17 19:21:12 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			put_shape(char **mat, t_coord c, int n, char *shape)
 		else if (shape[step] == 'R')
 			c.j++;
 		if (c.i >= 0 && c.i < n && c.j >= 0 && c.j < n &&
-				mat[c.i][c.j] == '.')
+				(mat[c.i][c.j] == '.' || mat[c.i][c.j] == letter))
 			mat[c.i][c.j] = letter;
 		else
 			return (0);
