@@ -6,11 +6,21 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 14:05:34 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/16 11:39:04 by vplaton          ###   ########.fr       */
+/*   Updated: 2015/12/17 19:40:15 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+int		count_shapes(char **shapes)
+{
+	int		count;
+
+	count = 0;
+	while (shapes[count])
+		count++;
+	return (count);
+}
 
 char		**create_matrix(int n)
 {

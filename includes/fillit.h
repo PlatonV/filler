@@ -6,7 +6,7 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:55 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/16 14:53:24 by vplaton          ###   ########.fr       */
+/*   Updated: 2015/12/17 19:40:10 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ int		put_shape(char **mat, t_coord c, int n, char *shape);
 int		clear_shape(char **mat, t_coord c, int n, char *shape);
 void	back(char **mat, int n, int shapei);
 void	print_matrix(char **mat, int n);
+int		count_shapes(char **shapes);
 
 #endif

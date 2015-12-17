@@ -6,21 +6,11 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:29 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/17 19:20:43 by                  ###   ########.fr       */
+/*   Updated: 2015/12/17 19:35:22 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-int			count_shapes(char **shapes)
-{
-	int		count;
-
-	count = 0;
-	while (shapes[count])
-		count++;
-	return (count);
-}
 
 void		back(char **mat, int n, int shapei)
 {
