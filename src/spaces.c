@@ -34,6 +34,7 @@ static int			lee(char **mat, int i, int j, int n)
 		return (0);
 	if (free(mat, i, j, n))
 	{
+		g_viz[i][j] = 1;
 		return (1 + lee(mat, i + 1, j, n) +
 				lee(mat, i - 1, j, n) +
 				lee(mat, i, j + 1, n) +
