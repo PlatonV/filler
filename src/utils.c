@@ -6,7 +6,7 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 14:05:34 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/17 19:40:15 by                  ###   ########.fr       */
+/*   Updated: 2015/12/23 23:02:51 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ void		print_matrix(char **mat, int n)
 		j = 0;
 		while (j < n)
 		{
-			ft_putchar(mat[i][j]);
+			if (mat[i][j] == 0)
+				ft_putchar('0');
+			else
+				ft_putchar(mat[i][j]);
 			ft_putchar(' ');
 			j++;
 		}

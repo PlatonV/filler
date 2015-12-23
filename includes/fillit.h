@@ -6,7 +6,7 @@
 /*   By: vplaton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:55 by vplaton           #+#    #+#             */
-/*   Updated: 2015/12/17 19:40:10 by                  ###   ########.fr       */
+/*   Updated: 2015/12/23 22:39:17 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef	struct s_elem
 
 char	**g_shapes;
 int		g_cshape;
+char	**g_viz;
 
 void	process_tetriminos(char **this_element, char *tetriminos);
 void	directions_back(char **this_element, char **matrix, char **aux, t_elem *anexe);
@@ -53,5 +54,6 @@ int		clear_shape(char **mat, t_coord c, int n, char *shape);
 void	back(char **mat, int n, int shapei);
 void	print_matrix(char **mat, int n);
 int		count_shapes(char **shapes);
+int		count_spaces(char **mat, int n);
 
 #endif
